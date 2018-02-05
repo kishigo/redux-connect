@@ -3,6 +3,22 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 
+## Redux Notes:
+### Containers, components, actions, reducers
+#### Containers
+* Contain mapStateToProps, mapDispatchToProps
+  * mapStateToProps(state) always gets the entire state tree
+  * mapDispatchToProps(dispatch) must use bindActionCreators(return {actionFunctions}) in order to bind action to reducer
+  
+#### Components
+* Components will receive a props object implicitly constructed as the merge of the keys in mapStateToProps and mapDispatchToProps
+  * It can use a deconstructor to explicitly list the props attributes.  Instead of component(props) we can also use component({attribute, attribute ...})
+  * PropTypes can type both of these approaches with the same typing on the fields.
+#### actions
+* Not much of interest
+#### reducers
+* reducers must return the initial state shape of the fragment they are dealing with in order for redux to know to give them a certain shape of data and to link that data into the state tree.
+
 ## Table of Contents
 
 - [Updating to New Releases](#updating-to-new-releases)
